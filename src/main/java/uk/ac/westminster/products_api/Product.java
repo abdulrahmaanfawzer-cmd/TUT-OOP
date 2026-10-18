@@ -14,7 +14,8 @@ public class Product {
 
     public Long getId() { return id; }
 
-    public String getName() { return name; }
+    public String getName() { return name; } //if I were to comment this out, it wouldnt work,
+    //because if the getName function is not there, Jackson has nothing to call for.
 
     public double getPrice() { return price;}
 }
