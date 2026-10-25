@@ -1,10 +1,18 @@
 package uk.ac.westminster.products_api;
 
+@com.fasterxml.jackson.annotation.JsonTypeInfo(use = com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION)
+@com.fasterxml.jackson.annotation.JsonSubTypes({
+        @com.fasterxml.jackson.annotation.JsonSubTypes.Type(DigitalProduct.class),
+        @com.fasterxml.jackson.annotation.JsonSubTypes.Type(PhysicalProduct.class)
+})
 public class Product {
 
     private Long id;
     private String name;
     private double price;
+
+    public Product() {
+    }
 
     public Product(Long id, String name, double price) {
         this.id = id;
